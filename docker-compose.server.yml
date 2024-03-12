@@ -10,9 +10,10 @@ services:
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.entrypoints=web"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}-http.middlewares=redirect-to-https"
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
-      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_SERVER_DOMAIN}`)"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=websecure"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_SERVER_DOMAIN}`)"
       - "traefik.http.middlewares.api-auth.basicauth.users=ollama:$$2y$$05$$g3JLdPnlSBhLdg9n/uihpePoh33ny2i6QYXdd9yHEAPSxddgOjXS2"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares=api-auth"
 
   model:
     restart: unless-stopped
