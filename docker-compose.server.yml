@@ -12,7 +12,7 @@ services:
       - "traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.rule=Host(`${COMPOSE_SERVER_DOMAIN}`)"
       - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.entrypoints=websecure"
-      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares.basicauth.users=ollama:$2y$05$HlVzy7IdpXQ7kAjV/5spmu84Ckjg5DlGFRwVqvemuli4MltkF3wFq"
+      - "traefik.http.routers.${COMPOSE_PROJECT_NAME}.middlewares.basicauth.users=ollama:$$2y$$05$$g3JLdPnlSBhLdg9n/uihpePoh33ny2i6QYXdd9yHEAPSxddgOjXS2"
 
   model:
     restart: unless-stopped
